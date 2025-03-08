@@ -29,7 +29,7 @@ cloudinary.config({
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
-app.use(express.static(path.join(import.meta.dirname, 'public')));
+app.use(express.static(path.join(import.meta.dirname, 'client', 'dist')));
 
 app.use(express.json());
 app.use(cookieParser());
