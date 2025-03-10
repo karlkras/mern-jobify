@@ -35,8 +35,8 @@ app.use(express.static(path.join(import.meta.dirname, 'client', 'dist')));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet());
-app.use(mongoSanitize());
+// app.use(helmet());
+// app.use(mongoSanitize());
 
 app.use('/api/v1/jobs', authMiddleware, jobRouter);
 app.use('/api/v1/auth', authRouter);
