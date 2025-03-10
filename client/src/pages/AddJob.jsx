@@ -30,7 +30,7 @@ export const action =
 
 const AddJob = () => {
   useEffect(() => {
-    location.reload;
+    window.location.reload();
   }, []);
 
   const { user } = useOutletContext();
