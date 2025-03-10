@@ -7,9 +7,13 @@ import {
 } from '../middleware/validationMiddleware.js';
 const router = express.Router();
 
+app.set('trust proxy', 'loopback');
+
 const apiLimiter = rateLimiter({
   windowMs: 15 * 60 * 1000,
   max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
   message: {
     msg: 'Exceeded requests from this IP, please try again after 15 minutes'
   }
