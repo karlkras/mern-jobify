@@ -7,8 +7,6 @@ import {
 } from '../middleware/validationMiddleware.js';
 const router = express.Router();
 
-app.set('trust proxy', 'loopback');
-
 const apiLimiter = rateLimiter({
   windowMs: 15 * 60 * 1000,
   max: 10,
