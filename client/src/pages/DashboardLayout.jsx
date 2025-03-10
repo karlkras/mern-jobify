@@ -55,10 +55,10 @@ const DashboardLayout = ({ queryClient }) => {
 
   const logoutUser = async () => {
     try {
-      navigate('/');
       await customFetch.get('/auth/logout');
       queryClient.invalidateQueries();
       toast('Successfully logged out.');
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
