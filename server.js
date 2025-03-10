@@ -43,7 +43,7 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', authMiddleware, userRouter);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(import.meta.dirname, 'public', 'index.html'));
+  res.sendFile(path.join(import.meta.dirname, 'client', 'dist', 'index.html'));
 });
 // middleware
 app.use(notFoundMiddleware);
