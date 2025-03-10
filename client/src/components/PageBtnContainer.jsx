@@ -8,8 +8,6 @@ const PageBtnContainer = () => {
   } = useAllJobsContext();
   const { search, pathname } = useLocation();
   const navigate = useNavigate();
-  const pages = Array.from({ length: numOfPages }, (_, index) => index + 1);
-
   const addPageButton = ({ pageNumber, activeClass }) => {
     const active = activeClass ? ' active' : '';
     return (

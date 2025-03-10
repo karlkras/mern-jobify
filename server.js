@@ -10,6 +10,8 @@ import cookieParser from 'cookie-parser';
 import authMiddleware from './middleware/auth.js';
 import path from 'path';
 import cloudinary from 'cloudinary';
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
 
 dotenv.config();
 
@@ -33,6 +35,8 @@ app.use(express.static(path.join(import.meta.dirname, 'client', 'dist')));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(helmet());
+app.use(mongoSanitize());
 
 app.use('/api/v1/jobs', authMiddleware, jobRouter);
 app.use('/api/v1/auth', authRouter);
