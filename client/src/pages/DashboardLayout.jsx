@@ -35,7 +35,7 @@ export const loader = (queryClient) => async () => {
 export const DashboardContext = createContext();
 
 const DashboardLayout = ({ queryClient }) => {
-  const { user } = useQuery(useQuery).data;
+  const { user } = useQuery(userQuery).data;
   const navigate = useNavigate();
   const navigation = useNavigation();
   const isPageLoading = navigation.state === 'loading';
