@@ -13,6 +13,7 @@ import { checkDefaultTheme } from '../App';
 import { customFetch } from '../utils/customFetch';
 import { toast } from 'react-toastify';
 import { StatusCodes } from 'http-status-codes';
+import { useQuery } from '@tanstack/react-query';
 
 const userQuery = {
   queryKey: ['user'],
@@ -34,7 +35,7 @@ export const loader = (queryClient) => async () => {
 export const DashboardContext = createContext();
 
 const DashboardLayout = ({ queryClient }) => {
-  const { user } = useLoaderData();
+  const { user } = useQuery(useQuery).data;
   const navigate = useNavigate();
   const navigation = useNavigation();
   const isPageLoading = navigation.state === 'loading';
@@ -77,6 +78,7 @@ const DashboardLayout = ({ queryClient }) => {
   useEffect(() => {
     if (!isAuthError) return;
     logoutUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthError]);
 
   return (
